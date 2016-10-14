@@ -11,8 +11,11 @@ import Foundation
 func writeHelpMenu() {
     let io = inputOutput()
     
-    io.writeMessage("\n-- Help Menu --\n")
-    //io.writeMessage("If at any time using the calculator, feel free to use the Help command!\n")
+    io.writeMessage("\n---- Help Menu ----\n")
+    io.writeMessage("If at any time using the Library, feel free to use the Help command!\n")
+    io.writeMessage("Pressing 'R' at anytime during the program will return you back to start of the program.")
+    io.writeMessage("The 'C' command is only to check how MANY books are available in the library. This is not a list of them.")
+    io.writeMessage("Using the 'L' command will display all books that are available in the Library.")
 } // Help Menu Text
 
 
@@ -35,7 +38,7 @@ class Interactive {
             io.writeMessage("6.) Enter 'In' to check in a book.")
             io.writeMessage("7.) Enter 'O' to see which books are currently checked out.")
             io.writeMessage("9.) Enter 'R' to return to the main menu.")
-            io.writeMessage("0.) Enter 'Q' to quit.\n")
+            io.writeMessage("0.) Enter 'Q' to quit during the program at any time.\n")
             currentInput = io.getInput()
             
             // User command directions
@@ -69,14 +72,15 @@ class Interactive {
 
 
 class CheckLibrary {
-    private var bookIndex = [String] ().sorted(by: <)
+    private var bookIndex = ["0: Holes", "1: The Tale of Desperaux", "3: The Hunger Games", "4: Voices from Chernobyl", "5: The Sixth Extinction"].sorted(by: <)
     private var bookOut = [String] ().sorted(by: <)
     private var currentInput: String = ""
     private var bookName: String = ""
-    private var bookKeyCount: Int = 0
+    private var bookKeyCount: Int = 6
     private var bookKeyOutCount: Int = 0
     private let io = inputOutput()
     var validInput = false
+    
     
     func addBook() {
         validInput = false
