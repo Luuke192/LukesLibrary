@@ -142,7 +142,9 @@ class CheckLibrary {
                     let bookNameString = inputVal
                     let bookName:Int? = Int(bookNameString)
                     if bookName! <= bookIndex.count-1 {
-                        bookOut.insert(bookIndex[bookName!], at: 0)
+                        let date = String(describing: NSDate ())
+                        bookOut.insert(date, at: 0)
+                        bookOut.insert(bookIndex[bookName!], at: 1)
                         bookIndex.remove(at: bookName!)
                     } else {
                         print("We seem to not have that book in our index. Please try again with another book.")
